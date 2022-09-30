@@ -7,7 +7,8 @@
       autofocus
       placeholder="add todo"
       autocomplete="off"
-    ></el-input>
+    >
+    </el-input>
 
     <el-card>
       <template #header>
@@ -82,14 +83,14 @@ interface StateOptions {
   filteredTodos: todoItem[];
 }
 
-const filters: { [index: string] } = {
-  all: function (todos: todoItem[]): todoItem[] {
+const filters = {
+  all: (todos: todoItem[]) => {
     return todos;
   },
-  active: function (todos: todoItem[]): todoItem[] {
+  active: (todos: todoItem[]) => {
     return todos.filter((todo) => !todo.completed);
   },
-  completed: function (todos: todoItem[]): todoItem[] {
+  completed: (todos: todoItem[]) => {
     return todos.filter((todo) => todo.completed);
   },
 };
@@ -116,7 +117,7 @@ export default {
       editedTodo: null,
       visibility: "all",
       filteredTodos: computed<todoItem[]>(() => {
-        return filters[state.visibility.toString()](state.todos);
+        return filters[state.visibility as keyof typeof filters](state.todos);
       }),
     });
 
@@ -173,10 +174,12 @@ export default {
 .completed label {
   text-decoration: line-through;
 }
+
 .edit,
 .editing .view {
   display: none;
 }
+
 .view,
 .editing .edit {
   display: block;
