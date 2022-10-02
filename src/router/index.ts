@@ -1,9 +1,10 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import FlexView from "../views/FlexView.vue";
+import { h } from "vue";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
@@ -32,6 +33,22 @@ const router = createRouter({
       component: () => import("../views/TodoList.vue"),
     },
   ],
+});
+
+//动态路由
+router.addRoute({
+  path: "/drouter",
+  name: "drouter",
+  component: () => import("../views/DRouter.vue"),
+});
+
+router.addRoute("drouter", {
+  path: "/drouter/info",
+  component: {
+    render() {
+      return h("div", "info page");
+    },
+  },
 });
 
 export default router;

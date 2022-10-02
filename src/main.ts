@@ -8,10 +8,13 @@ import router from "./router";
 
 import "./assets/main.css";
 
+import EditTodo from "./components/todos/EditTodo.vue";
+
 const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
 app.use(ElementPlus, { size: "small", zIndex: 3000 });
+app.component("EditTodo", EditTodo);
 
 app.mount("#app");
