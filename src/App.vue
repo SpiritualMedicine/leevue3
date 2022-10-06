@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { provide } from "vue";
 import { RouterLink, RouterView } from "vue-router";
+//provide inject
+provide("color", "red");
 </script>
 
 <template>
@@ -10,6 +13,9 @@ import { RouterLink, RouterView } from "vue-router";
       <RouterLink to="/flex">Flex</RouterLink>
       <RouterLink to="/todo">Todo</RouterLink>
       <RouterLink to="/drouter">drouter</RouterLink>
+      <RouterLink to="/tv">tv</RouterLink>
+      <RouterLink to="/tgv">tgv</RouterLink>
+      <RouterLink to="/bus">bus</RouterLink>
     </el-aside>
     <el-container>
       <el-main>

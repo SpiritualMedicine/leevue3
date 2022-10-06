@@ -32,6 +32,21 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/TodoList.vue"),
     },
+    {
+      path: "/tv",
+      name: "transitionview",
+      component: () => import("../views/TransitionView.vue"),
+    },
+    {
+      path: "/tgv",
+      name: "transitiongroupview",
+      component: () => import("../views/TransitionGroupView.vue"),
+    },
+    {
+      path: "/bus",
+      name: "bustestview",
+      component: () => import("../views/BusTest.vue"),
+    },
   ],
 });
 

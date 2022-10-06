@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { inject } from "vue";
+
+const color = inject("color");
+</script>
 
 <template>
   <ul>
@@ -7,6 +11,9 @@
     </li>
     <li>
       <router-link to="/grid">dada</router-link>
+    </li>
+    <li>
+      <router-link to="/grid">{{ color }}</router-link>
     </li>
   </ul>
 </template>
