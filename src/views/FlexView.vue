@@ -12,12 +12,11 @@ import {
 const msg = ref("some message");
 
 //使用元素引用
-const desc = ref(null);
+const desc = ref<Node | null>(null);
 const { counter, doubleCounter } = useCounter();
 
 watch(counter, (val, oldVal) => {
-  const div = desc.value;
-  div.textContent = `counter change from ${oldVal} to ${val}`;
+  (desc.value as Node).textContent = `counter change from ${oldVal} to ${val}`;
 });
 interface COUNTER_TYPE {
   counter: number;
@@ -29,7 +28,7 @@ function useCounter() {
     doubleCounter: computed(() => data.counter * 2),
   });
 
-  let timer: string | number | NodeJS.Timer | undefined;
+  let timer: ReturnType<typeof setTimeout>;
 
   onMounted(() => {
     timer = setInterval(() => {

@@ -4,6 +4,8 @@
     :value="todoTitle"
     @input="onInputChange"
     v-bind="$attrs"
+    autofocus
+    class="el-input"
   />
 </template>
 

@@ -92,6 +92,10 @@ export default {
 
 .view,
 .editing .edit {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  padding: 1px 0;
+  min-width: 500px;
+  max-width: 1440px;
 }
 </style>

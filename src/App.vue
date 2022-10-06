@@ -9,6 +9,7 @@ import { RouterLink, RouterView } from "vue-router";
       <RouterLink to="/grid">Grid</RouterLink>
       <RouterLink to="/flex">Flex</RouterLink>
       <RouterLink to="/todo">Todo</RouterLink>
+      <RouterLink to="/drouter">drouter</RouterLink>
     </el-aside>
     <el-container>
       <el-main>

@@ -9,16 +9,10 @@
     >
     </EditTodo>
 
-    <el-card>
+    <el-card shadow="always">
       <template #header>
-        <div
-          style="
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          "
-        >
-          <span>todolist</span>
+        <div class="card-title">
+          <span>TodoList</span>
         </div>
       </template>
       <TodoItem
@@ -46,21 +40,21 @@ type todoItem = {
 
 interface StateOptions {
   newTodo: string;
-  todos: todoItem[];
+  todos: Array<todoItem>;
   beforeEditedCache: string;
   editedTodo: todoItem | null;
   visibility: string;
   filteredItems: Array<{ label: string; value: string }>;
-  filteredTodos: todoItem[];
+  filteredTodos: Array<todoItem>;
 }
 const filters = {
-  all: (todos: todoItem[]) => {
+  all: (todos: Array<todoItem>) => {
     return todos;
   },
-  active: (todos: todoItem[]) => {
+  active: (todos: Array<todoItem>) => {
     return todos.filter((todo) => !todo.completed);
   },
-  completed: (todos: todoItem[]) => {
+  completed: (todos: Array<todoItem>) => {
     return todos.filter((todo) => todo.completed);
   },
 };
@@ -74,7 +68,7 @@ const todoStorage = {
     });
     return todos;
   },
-  save(todos: todoItem[]) {
+  save(todos: Array<todoItem>) {
     localStorage.setItem("vue3-todos", JSON.stringify(todos));
   },
 };
@@ -91,7 +85,7 @@ export default defineComponent({
         { label: "Active", value: "active" },
         { label: "Completed", value: "completed" },
       ],
-      filteredTodos: computed<todoItem[]>(() => {
+      filteredTodos: computed<Array<todoItem>>(() => {
         return filters[state.visibility as keyof typeof filters](state.todos);
       }),
     });
@@ -123,5 +117,10 @@ export default defineComponent({
 <style scoped>
 .todolist {
   margin: 0;
+}
+.card-title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 </style>
