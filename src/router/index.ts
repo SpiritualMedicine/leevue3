@@ -47,6 +47,26 @@ const router = createRouter({
       name: "bustestview",
       component: () => import("../views/BusTest.vue"),
     },
+    {
+      path: "/tsx",
+      name: "tsxview",
+      component: () => import("../views/TsxView.vue"),
+    },
+    {
+      path: "/vmt",
+      name: "VModelTest",
+      component: () => import("../views/VModelTestAndDirective.vue"),
+    },
+    {
+      path: "/ntt",
+      name: "nextticktest",
+      component: () => import("../views/NextTickTest.vue"),
+    },
+    {
+      path: "/fv",
+      name: "FunctionView",
+      component: () => import("../views/FunctionView.vue"),
+    },
   ],
 });
 

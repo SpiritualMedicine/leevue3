@@ -33,7 +33,7 @@ import {
   useRouter,
   type RouteLocationNormalized,
 } from "vue-router";
-import { useCounterStore } from "@/stores/counter";
+import { useCounterStore } from "@/stores";
 
 const state = reactive({
   back: "back",
