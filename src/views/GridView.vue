@@ -2,7 +2,9 @@
   <div class="grid">
     <div class="item-1">1</div>
     <div>1</div>
-    <div>1</div>
+    <div>
+      <FloatingItem>H2</FloatingItem>
+    </div>
     <div class="item-4">
       <ShiningButton>Shine</ShiningButton>
     </div>
@@ -29,6 +31,7 @@
 
 <script setup lang="ts">
 import ShiningButton from "../components/ShiningButton.vue";
+import FloatingItem from "../components/FloatingItem.vue";
 import { reactive, watch } from "vue";
 import {
   onBeforeRouteLeave,
