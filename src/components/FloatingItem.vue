@@ -20,6 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 0;
   overflow: hidden;
 }
 
@@ -43,16 +44,22 @@
   animation: 4s linear infinite ro;
 }
 
+.floating:hover::after {
+  content: "";
+  filter: blur(80px);
+  opacity: 1;
+}
+
 .pad {
   position: absolute;
-  inset: 6px;
-  border-radius: 16px;
-  background-color: #181818;
-  z-index: 1;
+  inset: 4px;
+  border-radius: 20px;
+  background-color: #111;
+  z-index: 0;
 }
 .hover {
   position: relative;
-  z-index: 2;
+  z-index: 0;
   color: #eee;
   font-size: 40px;
   display: flex;
