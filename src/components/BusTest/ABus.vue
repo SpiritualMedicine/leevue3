@@ -17,7 +17,7 @@ const emitB = () => {
 const instance = getCurrentInstance();
 
 const emit = () => {
-  instance?.proxy?.$Bus.emit("on-xiaoli", "mitt");
+  instance?.proxy?.$Bus.emit("on-xiaoli", "mitt" as string);
 };
 </script>
 

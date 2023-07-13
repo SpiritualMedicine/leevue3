@@ -1,6 +1,7 @@
 <template>
   <div class="B">
-    {{ Flag }}
+    <div>{{ Flag }}</div>
+    <div>{{ mittFlag }}</div>
   </div>
 </template>
 
@@ -9,6 +10,7 @@ import { getCurrentInstance, ref } from "vue";
 import Bus from "../../bus";
 
 let Flag = ref(false);
+const mittFlag = ref("");
 Bus.on("on-click", (flag: boolean) => {
   Flag.value = flag;
 });
@@ -16,6 +18,7 @@ Bus.on("on-click", (flag: boolean) => {
 const instance = getCurrentInstance();
 
 instance?.proxy?.$Bus.on("on-xiaoli", (str) => {
+  mittFlag.value = str as string;
   console.log(str);
 });
 </script>
